@@ -11,7 +11,7 @@ import SwiftUI
 struct ProductiveThreeApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TempContentView()
         }
     }
 }
