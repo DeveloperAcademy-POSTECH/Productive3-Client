@@ -20,6 +20,7 @@
 		43A3D9EB28055AA500C5A9AD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A3D9EA28055AA500C5A9AD /* ContentView.swift */; };
 		43A3D9ED28055AA600C5A9AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43A3D9EC28055AA600C5A9AD /* Assets.xcassets */; };
 		43A3D9F028055AA600C5A9AD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43A3D9EF28055AA600C5A9AD /* Preview Assets.xcassets */; };
+		52FAEA1628056668002C40C6 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FAEA1528056668002C40C6 /* SplashView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		43A3D9EA28055AA500C5A9AD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		43A3D9EC28055AA600C5A9AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		43A3D9EF28055AA600C5A9AD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		52FAEA1528056668002C40C6 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				439C654B28055DBF00FDDE19 /* LoadingView.swift */,
+				52FAEA1528056668002C40C6 /* SplashView.swift */,
 			);
 			path = Loading;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 				439C655F28055E5000FDDE19 /* Color.swift in Sources */,
 				439C655828055E0400FDDE19 /* MyPageView.swift in Sources */,
 				439C655228055DE600FDDE19 /* InsertTodoView.swift in Sources */,
+				52FAEA1628056668002C40C6 /* SplashView.swift in Sources */,
 				43A3D9EB28055AA500C5A9AD /* ContentView.swift in Sources */,
 				439C655428055DF000FDDE19 /* TodoListView.swift in Sources */,
 				439C655A28055E1E00FDDE19 /* MyPageDetailView.swift in Sources */,
