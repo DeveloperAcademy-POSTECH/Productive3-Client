@@ -9,9 +9,12 @@ import SwiftUI
 
 struct MyPageView: View {
     @State private var showModal = false //상태
+    @State private var index: Int?
+    
+//    var mypageDetailView = MyPageDetailView()
     
     //목록을 1부터 1000까지 만듬
-    let data = Array(0...71)
+    let data = Array(0...6)
     
     //화면을 그리드형식으로 꽉채워줌
     let columns = [
@@ -30,14 +33,7 @@ struct MyPageView: View {
         VStack {
             HStack {
                 Spacer()
-                Button {
-                    print("문서")
-                } label: {
-                    Image(systemName: "note.text")
-                        .font(.system(size: 33))
-                        .tint(Color.init(hex: "BFBFBF"))
-                }
-                .padding(.trailing, 25)
+                
                 Button {
                     print("사람")
                 } label: {
@@ -79,22 +75,23 @@ struct MyPageView: View {
                             $0.resizable()
                                 .scaledToFill()
                                 .aspectRatio(contentMode: .fit)
+                                .cornerRadius(20)
                         } placeholder: {
                             ProgressView()
                         }
                         .onTapGesture {
-                            print("\(index)번째 사진 선택")
                             self.showModal = true
+                            self.index = index
+                            }
                         }
                         .sheet(isPresented: self.$showModal) {
-                            MyPageDetailView()
+                            MyPageDetailView(index: self.$index, showModal: self.$showModal)
                         }
-                        
                     }
                 }
                 .padding([.horizontal, .vertical], 10)
             }
-        }
+        
     }
 }
 
