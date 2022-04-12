@@ -22,6 +22,8 @@
 		43A3D9F028055AA600C5A9AD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43A3D9EF28055AA600C5A9AD /* Preview Assets.xcassets */; };
 		52FAEA1628056668002C40C6 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FAEA1528056668002C40C6 /* SplashView.swift */; };
 		A477DE78951B029A729242CD /* Pods_ProductiveThree.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E623D68C61D86BE59CB7161 /* Pods_ProductiveThree.framework */; };
+		A8E987832805A2E40051EEE9 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E987822805A2E40051EEE9 /* Models.swift */; };
+		A8E987852805A3CC0051EEE9 /* DateToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E987842805A3CC0051EEE9 /* DateToString.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +45,8 @@
 		52FAEA1528056668002C40C6 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		9933DD0B9DCD8E56562A9B2C /* Pods-ProductiveThree.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProductiveThree.debug.xcconfig"; path = "Target Support Files/Pods-ProductiveThree/Pods-ProductiveThree.debug.xcconfig"; sourceTree = "<group>"; };
 		9A0AA5ED60DC783A79D1B520 /* Pods-ProductiveThree.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProductiveThree.release.xcconfig"; path = "Target Support Files/Pods-ProductiveThree/Pods-ProductiveThree.release.xcconfig"; sourceTree = "<group>"; };
+		A8E987822805A2E40051EEE9 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		A8E987842805A3CC0051EEE9 /* DateToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateToString.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +171,7 @@
 		43A3D9E728055AA500C5A9AD /* ProductiveThree */ = {
 			isa = PBXGroup;
 			children = (
+				A8E987812805A2DB0051EEE9 /* Realm */,
 				439C654928055D8200FDDE19 /* Loading */,
 				439C654828055D7F00FDDE19 /* InsertUserInfo */,
 				439C654728055D3C00FDDE19 /* InsertTodo */,
@@ -198,8 +203,16 @@
 				9933DD0B9DCD8E56562A9B2C /* Pods-ProductiveThree.debug.xcconfig */,
 				9A0AA5ED60DC783A79D1B520 /* Pods-ProductiveThree.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		A8E987812805A2DB0051EEE9 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				A8E987822805A2E40051EEE9 /* Models.swift */,
+				A8E987842805A3CC0051EEE9 /* DateToString.swift */,
+			);
+			path = Realm;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -317,9 +330,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				439C655628055DFC00FDDE19 /* TodoListRewardView.swift in Sources */,
+				A8E987832805A2E40051EEE9 /* Models.swift in Sources */,
 				439C655C28055E2800FDDE19 /* EditUserInfoView.swift in Sources */,
 				439C655F28055E5000FDDE19 /* Color.swift in Sources */,
 				439C655828055E0400FDDE19 /* MyPageView.swift in Sources */,
+				A8E987852805A3CC0051EEE9 /* DateToString.swift in Sources */,
 				439C655228055DE600FDDE19 /* InsertTodoView.swift in Sources */,
 				52FAEA1628056668002C40C6 /* SplashView.swift in Sources */,
 				43A3D9EB28055AA500C5A9AD /* ContentView.swift in Sources */,
