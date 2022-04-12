@@ -7,8 +7,8 @@
 
 import RealmSwift
 
-class Routine: Object, Identifiable {
-    @Persisted(primaryKey: true) var routineId = UUID()
+class Routine: Object, ObjectKeyIdentifiable {
+    @Persisted(primaryKey: true) var _id: ObjectId
     @Persisted var date: String;
     @Persisted var contents: RealmSwift.List<Content>;
     @Persisted var accomplished = false;
@@ -21,8 +21,8 @@ class Routine: Object, Identifiable {
     }
 }
 
-class Content: Object {
-    @Persisted(primaryKey: true) var contentId = UUID();
+class Content: Object, ObjectKeyIdentifiable {
+    @Persisted(primaryKey: true) var _id: ObjectId;
     @Persisted var content: String;
     @Persisted var accomplished = false;
     
