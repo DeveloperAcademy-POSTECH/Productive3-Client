@@ -9,7 +9,27 @@ import SwiftUI
 
 struct LoadingView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        GeometryReader { metrics in
+            VStack {
+                
+                Spacer()
+                
+                HStack {
+                    Spacer()
+                    
+                    Image("logo")
+                        .resizable()
+                        .frame(width: metrics.size.width * 0.35, height: metrics.size.width * 0.35)
+                    
+                    Spacer()
+                    
+                } // HStack
+                
+                Spacer()
+                
+            } // VStack
+            .background(Color(red: 251/255, green: 251/255, blue: 251/255))
+        }
     }
 }
 
