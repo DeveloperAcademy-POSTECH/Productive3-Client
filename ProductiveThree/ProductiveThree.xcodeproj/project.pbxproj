@@ -21,9 +21,13 @@
 		43A3D9ED28055AA600C5A9AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43A3D9EC28055AA600C5A9AD /* Assets.xcassets */; };
 		43A3D9F028055AA600C5A9AD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43A3D9EF28055AA600C5A9AD /* Preview Assets.xcassets */; };
 		52FAEA1628056668002C40C6 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FAEA1528056668002C40C6 /* SplashView.swift */; };
+		A477DE78951B029A729242CD /* Pods_ProductiveThree.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E623D68C61D86BE59CB7161 /* Pods_ProductiveThree.framework */; };
+		A8E987832805A2E40051EEE9 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E987822805A2E40051EEE9 /* Models.swift */; };
+		A8E987852805A3CC0051EEE9 /* DateToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E987842805A3CC0051EEE9 /* DateToString.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E623D68C61D86BE59CB7161 /* Pods_ProductiveThree.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProductiveThree.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		439C654B28055DBF00FDDE19 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		439C654F28055DDD00FDDE19 /* InsertUserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertUserInfoView.swift; sourceTree = "<group>"; };
 		439C655128055DE600FDDE19 /* InsertTodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertTodoView.swift; sourceTree = "<group>"; };
@@ -39,6 +43,10 @@
 		43A3D9EC28055AA600C5A9AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		43A3D9EF28055AA600C5A9AD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		52FAEA1528056668002C40C6 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		9933DD0B9DCD8E56562A9B2C /* Pods-ProductiveThree.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProductiveThree.debug.xcconfig"; path = "Target Support Files/Pods-ProductiveThree/Pods-ProductiveThree.debug.xcconfig"; sourceTree = "<group>"; };
+		9A0AA5ED60DC783A79D1B520 /* Pods-ProductiveThree.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProductiveThree.release.xcconfig"; path = "Target Support Files/Pods-ProductiveThree/Pods-ProductiveThree.release.xcconfig"; sourceTree = "<group>"; };
+		A8E987822805A2E40051EEE9 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		A8E987842805A3CC0051EEE9 /* DateToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateToString.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,12 +54,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A477DE78951B029A729242CD /* Pods_ProductiveThree.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		22175EDD8F86751A2F3A4F6C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3E623D68C61D86BE59CB7161 /* Pods_ProductiveThree.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		439C654128055D3100FDDE19 /* Global */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +155,8 @@
 			children = (
 				43A3D9E728055AA500C5A9AD /* ProductiveThree */,
 				43A3D9E628055AA500C5A9AD /* Products */,
+				5B28D3E68DD455B2D740431A /* Pods */,
+				22175EDD8F86751A2F3A4F6C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -152,6 +171,7 @@
 		43A3D9E728055AA500C5A9AD /* ProductiveThree */ = {
 			isa = PBXGroup;
 			children = (
+				A8E987812805A2DB0051EEE9 /* Realm */,
 				439C654928055D8200FDDE19 /* Loading */,
 				439C654828055D7F00FDDE19 /* InsertUserInfo */,
 				439C654728055D3C00FDDE19 /* InsertTodo */,
@@ -177,6 +197,24 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		5B28D3E68DD455B2D740431A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9933DD0B9DCD8E56562A9B2C /* Pods-ProductiveThree.debug.xcconfig */,
+				9A0AA5ED60DC783A79D1B520 /* Pods-ProductiveThree.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		A8E987812805A2DB0051EEE9 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				A8E987822805A2E40051EEE9 /* Models.swift */,
+				A8E987842805A3CC0051EEE9 /* DateToString.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -184,9 +222,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 43A3D9F328055AA600C5A9AD /* Build configuration list for PBXNativeTarget "ProductiveThree" */;
 			buildPhases = (
+				E7D3F900EA957008689D1F36 /* [CP] Check Pods Manifest.lock */,
 				43A3D9E128055AA500C5A9AD /* Sources */,
 				43A3D9E228055AA500C5A9AD /* Frameworks */,
 				43A3D9E328055AA500C5A9AD /* Resources */,
+				B7911C9FFE2FF301ADBB6FFC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -242,15 +282,59 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B7911C9FFE2FF301ADBB6FFC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ProductiveThree/Pods-ProductiveThree-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ProductiveThree/Pods-ProductiveThree-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ProductiveThree/Pods-ProductiveThree-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E7D3F900EA957008689D1F36 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ProductiveThree-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		43A3D9E128055AA500C5A9AD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				439C655628055DFC00FDDE19 /* TodoListRewardView.swift in Sources */,
+				A8E987832805A2E40051EEE9 /* Models.swift in Sources */,
 				439C655C28055E2800FDDE19 /* EditUserInfoView.swift in Sources */,
 				439C655F28055E5000FDDE19 /* Color.swift in Sources */,
 				439C655828055E0400FDDE19 /* MyPageView.swift in Sources */,
+				A8E987852805A3CC0051EEE9 /* DateToString.swift in Sources */,
 				439C655228055DE600FDDE19 /* InsertTodoView.swift in Sources */,
 				52FAEA1628056668002C40C6 /* SplashView.swift in Sources */,
 				43A3D9EB28055AA500C5A9AD /* ContentView.swift in Sources */,
@@ -381,6 +465,7 @@
 		};
 		43A3D9F428055AA600C5A9AD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9933DD0B9DCD8E56562A9B2C /* Pods-ProductiveThree.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -410,6 +495,7 @@
 		};
 		43A3D9F528055AA600C5A9AD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9A0AA5ED60DC783A79D1B520 /* Pods-ProductiveThree.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
