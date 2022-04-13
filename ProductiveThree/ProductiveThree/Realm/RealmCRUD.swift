@@ -21,7 +21,7 @@ class RealmCRUD {
         }
     }
     
-    func createRoutine(tasks: [String], date: Date) {
+    func createRoutine(tasks: [String]) {
         let contents = contentExtracted(tasks: tasks)
         
         try! realm.write {
