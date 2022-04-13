@@ -173,6 +173,7 @@
 		43A3D9E728055AA500C5A9AD /* ProductiveThree */ = {
 			isa = PBXGroup;
 			children = (
+				A80986752806B5AD005039E3 /* New Group */,
 				A8E987812805A2DB0051EEE9 /* Realm */,
 				439C654928055D8200FDDE19 /* Loading */,
 				439C654828055D7F00FDDE19 /* InsertUserInfo */,
@@ -206,6 +207,13 @@
 				9A0AA5ED60DC783A79D1B520 /* Pods-ProductiveThree.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		A80986752806B5AD005039E3 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		A8E987812805A2DB0051EEE9 /* Realm */ = {
