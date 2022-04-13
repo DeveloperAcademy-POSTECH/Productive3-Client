@@ -8,8 +8,12 @@
 import SwiftUI
 
 struct InsertUserInfoView: View {
+    @Binding var viewState : String
+    
     @State var nickname: String = ""
     @State var moto: String = ""
+    
+    
     var body: some View {
         NavigationView {
             
@@ -94,7 +98,7 @@ struct InsertUserInfoView: View {
                         Spacer()
                             .frame(height: 320)
                     } // Z
-                    NavigationLink(destination: InsertTodoView()){
+                    NavigationLink(destination: InsertTodoView(viewState:$viewState)){
                         ZStack{
                             RoundedRectangle(cornerRadius: 7)
                                 .fill(Color(red: 0.6980392156862745, green: 0.7215686274509804, blue: 0.6392156862745098))
@@ -125,8 +129,3 @@ struct InsertUserInfoView: View {
     }
 }
 
-struct InsertUserInfoView_Previews: PreviewProvider {
-    static var previews: some View {
-        InsertUserInfoView()
-    }
-}

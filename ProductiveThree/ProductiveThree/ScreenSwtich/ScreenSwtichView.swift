@@ -12,15 +12,15 @@ struct ScreenSwtichView: View {
     var body: some View {
         switch viewState {
         case "InsertUserInfo":
-            InsertUserInfoView()
+            InsertUserInfoView(viewState: $viewState)
         case "AskToDoView":
-            AskToDoView()
+            AskToDoView(viewState: $viewState)
         case "InsertToDo":
-            InsertTodoView()
+            InsertTodoView(viewState: $viewState)
 //        case "ToDoList":
 //            TodoListView()
         default :
-            AskUserInfoView()
+            AskUserInfoView(viewState: $viewState)
         }
     }
 }

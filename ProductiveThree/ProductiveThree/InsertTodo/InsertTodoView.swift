@@ -10,6 +10,7 @@ import Combine
 import RealmSwift
 
 struct InsertTodoView: View {
+    @Binding var viewState : String
     @State var newToDoList = [
         toDoInput(index: 0, input: ""),
         toDoInput(index: 1, input: ""),
@@ -43,17 +44,11 @@ struct InsertTodoView: View {
                     ProductiveThree.toDoInputRow(newToDo: $newToDoList[index].input)
                 }
                 Spacer()
-                ProductiveThree.ButtonBox(newToDoList: $newToDoList)
+                ProductiveThree.ButtonBox(newToDoList: $newToDoList, viewState: $viewState)
             }
         }
     }
     
-}
-
-struct InsertTodoView_Previews: PreviewProvider {
-    static var previews: some View {
-        InsertTodoView()
-    }
 }
 
 struct toDoInput {
@@ -109,6 +104,8 @@ struct toDoInputRow: View {
 
 struct ButtonBox: View {
     @Binding var newToDoList : [toDoInput]
+    @Binding var viewState : String
+    
     let realmCrud = RealmCRUD.instance
     
     func isNotBlankFn (str1: String, str2: String, str3: String)-> Bool {
@@ -146,7 +143,10 @@ struct ButtonBox: View {
                 //disabled Button
                 
                 if isNotBlankFn(str1: newToDoList[0].input, str2:  newToDoList[1].input, str3:  newToDoList[2].input) {
-                    Button(action: { createToDoList()}){
+                    Button(action: {
+                        createToDoList()
+                        viewState = "ToDoList"
+                    }){
                         Text("실천하러 가기")
                             .fontWeight(.semibold)
                             .foregroundColor(Color(red: 60/255, green: 60/255, blue: 60/255))
