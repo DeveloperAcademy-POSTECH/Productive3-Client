@@ -14,6 +14,12 @@ extension Color {
     static let ORANGE_8 = Color(hex: "#F4C7AB")
     static let GRAY_8 = Color(hex: "#D3D3D3")
     static let OLIVE_8 = Color(hex: "#B2B8A3")
+    
+    // Leo
+    static let GRAY_DONE = Color(hex: "D3D3D3")
+    static let GRAY_BUTTON = Color(hex: "F5F5F5")
+    static let CUSTOM_ORANGE = Color(hex: "F4C7AB")
+    static let BACKGROUND = Color(hex: "FBFBFB")
 }
 
 extension Color {

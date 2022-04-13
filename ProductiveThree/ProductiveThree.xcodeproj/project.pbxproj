@@ -23,6 +23,9 @@
 		52FAEA1628056668002C40C6 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FAEA1528056668002C40C6 /* SplashView.swift */; };
 		A477DE78951B029A729242CD /* Pods_ProductiveThree.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E623D68C61D86BE59CB7161 /* Pods_ProductiveThree.framework */; };
 		A80986742806B246005039E3 /* RealmCRUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80986732806B246005039E3 /* RealmCRUD.swift */; };
+		A80986772806C6CB005039E3 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80986762806C6CB005039E3 /* ModalView.swift */; };
+		A80986792806C6EF005039E3 /* HeaderText.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80986782806C6EF005039E3 /* HeaderText.swift */; };
+		A809867B2806C706005039E3 /* RoutineContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A809867A2806C706005039E3 /* RoutineContentView.swift */; };
 		A8E987832805A2E40051EEE9 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E987822805A2E40051EEE9 /* Models.swift */; };
 		A8E987852805A3CC0051EEE9 /* DateToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E987842805A3CC0051EEE9 /* DateToString.swift */; };
 /* End PBXBuildFile section */
@@ -47,6 +50,9 @@
 		9933DD0B9DCD8E56562A9B2C /* Pods-ProductiveThree.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProductiveThree.debug.xcconfig"; path = "Target Support Files/Pods-ProductiveThree/Pods-ProductiveThree.debug.xcconfig"; sourceTree = "<group>"; };
 		9A0AA5ED60DC783A79D1B520 /* Pods-ProductiveThree.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProductiveThree.release.xcconfig"; path = "Target Support Files/Pods-ProductiveThree/Pods-ProductiveThree.release.xcconfig"; sourceTree = "<group>"; };
 		A80986732806B246005039E3 /* RealmCRUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCRUD.swift; sourceTree = "<group>"; };
+		A80986762806C6CB005039E3 /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
+		A80986782806C6EF005039E3 /* HeaderText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderText.swift; sourceTree = "<group>"; };
+		A809867A2806C706005039E3 /* RoutineContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineContentView.swift; sourceTree = "<group>"; };
 		A8E987822805A2E40051EEE9 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		A8E987842805A3CC0051EEE9 /* DateToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateToString.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -115,6 +121,9 @@
 			isa = PBXGroup;
 			children = (
 				439C655328055DF000FDDE19 /* TodoListView.swift */,
+				A80986762806C6CB005039E3 /* ModalView.swift */,
+				A80986782806C6EF005039E3 /* HeaderText.swift */,
+				A809867A2806C706005039E3 /* RoutineContentView.swift */,
 			);
 			path = TodoList;
 			sourceTree = "<group>";
@@ -342,9 +351,12 @@
 			files = (
 				439C655628055DFC00FDDE19 /* TodoListRewardView.swift in Sources */,
 				A8E987832805A2E40051EEE9 /* Models.swift in Sources */,
+				A80986772806C6CB005039E3 /* ModalView.swift in Sources */,
 				439C655C28055E2800FDDE19 /* EditUserInfoView.swift in Sources */,
 				439C655F28055E5000FDDE19 /* Color.swift in Sources */,
 				439C655828055E0400FDDE19 /* MyPageView.swift in Sources */,
+				A80986792806C6EF005039E3 /* HeaderText.swift in Sources */,
+				A809867B2806C706005039E3 /* RoutineContentView.swift in Sources */,
 				A8E987852805A3CC0051EEE9 /* DateToString.swift in Sources */,
 				439C655228055DE600FDDE19 /* InsertTodoView.swift in Sources */,
 				52FAEA1628056668002C40C6 /* SplashView.swift in Sources */,
