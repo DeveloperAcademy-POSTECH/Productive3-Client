@@ -123,6 +123,7 @@ struct ButtonBox: View {
                     .fontWeight(.light)
                     .foregroundColor(Color(red: 115/255, green: 115/255, blue: 115/255))
             }
+            
             ZStack{
                 Button(action: {print("버튼이 눌렸습니다")}){
                     Text("실천하러 가기")
@@ -138,15 +139,18 @@ struct ButtonBox: View {
                 //disabled Button
                 
                 if isNotBlankFn(str1: newToDoList[0].input, str2:  newToDoList[1].input, str3:  newToDoList[2].input) {
-                    Button(action: { print("버튼이 눌렸습니다")}){
+                    NavigationLink(destination: TodoListView()) {
+                        VStack{
                         Text("실천하러 가기")
                             .fontWeight(.semibold)
                             .foregroundColor(Color(red: 60/255, green: 60/255, blue: 60/255))
+                        }
+                        .padding(.horizontal, 10.0)
+                        .padding(.vertical, 15.0)
+                        .background(RoundedRectangle(cornerRadius: 7).fill(Color(red: 244/255, green: 199/255, blue: 171/255)).frame(width: 336).shadow(color: Color(red: 0.49411764705882355, green: 0.49411764705882355, blue: 0.49411764705882355, opacity: 0.15), radius: 7, x: 0, y: 0))
+                        .frame(width:336, height: 54.0)
+                    
                     }
-                    .padding(.horizontal, 10.0)
-                    .padding(.vertical, 15.0)
-                    .background(RoundedRectangle(cornerRadius: 7).fill(Color(red: 244/255, green: 199/255, blue: 171/255)).frame(width: 336).shadow(color: Color(red: 0.49411764705882355, green: 0.49411764705882355, blue: 0.49411764705882355, opacity: 0.15), radius: 7, x: 0, y: 0))
-                    .frame(width:336, height: 54.0)
                     
                 } //albed Button
             }

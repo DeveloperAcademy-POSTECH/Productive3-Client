@@ -11,7 +11,7 @@ struct MyPageView: View {
     @State private var showModal = false //상태
     @State private var index: Int?
     
-//    var mypageDetailView = MyPageDetailView()
+    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     
     //목록을 1부터 1000까지 만듬
     let data = Array(0...6)
@@ -31,20 +31,6 @@ struct MyPageView: View {
     
     var body: some View {
         VStack {
-            HStack {
-                Spacer()
-                
-                Button {
-                    print("사람")
-                } label: {
-                    Image(systemName: "person.fill")
-                        .font(.system(size: 33))
-                        .tint(Color.init(hex: "BFBFBF"))
-                }
-                .padding(.trailing, 15)
-            }
-            .padding([.top, .bottom], 20)
-            
             Text("뭐든 미친듯이")
                 .fontWeight(.light)
                 .font(.system(size: 17))
@@ -82,18 +68,36 @@ struct MyPageView: View {
                         .onTapGesture {
                             self.showModal = true
                             self.index = index
-                            }
-                        }
-                        .sheet(isPresented: self.$showModal) {
-                            MyPageDetailView(index: self.$index, showModal: self.$showModal)
                         }
                     }
+                    .sheet(isPresented: self.$showModal) {
+                        MyPageDetailView(index: self.$index, showModal: self.$showModal)
+                    }
                 }
-                .padding([.horizontal, .vertical], 10)
             }
+            .padding([.horizontal, .vertical], 10)
+            
+        }
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading: Button(action : {
+            self.mode.wrappedValue.dismiss()
+        }){
+            HStack {
+                Image("chevron.backward")
+                    .renderingMode(.template)
+                    .foregroundColor(Color.OLIVE_8)
+                Text("Todo")
+                    .foregroundColor(Color.OLIVE_8)
+            }
+        }, trailing: NavigationLink(destination: EditUserInfoView()){
+            Image("gearshape.fill")
+                .renderingMode(.template)
+                .foregroundColor(Color.OLIVE_8)
+        })
         
     }
 }
+
 
 struct MyPageView_Previews: PreviewProvider {
     static var previews: some View {
