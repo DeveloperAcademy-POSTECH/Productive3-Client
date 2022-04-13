@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ScreenSwtichView: View {
-    @State var viewState = "AskUserInfo"
+    @State var viewState = "InsertToDo"
     var body: some View {
         switch viewState {
         case "InsertUserInfo":

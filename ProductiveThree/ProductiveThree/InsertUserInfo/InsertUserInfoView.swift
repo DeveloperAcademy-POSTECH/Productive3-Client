@@ -98,28 +98,20 @@ struct InsertUserInfoView: View {
                         Spacer()
                             .frame(height: 320)
                     } // Z
-                    NavigationLink(destination: InsertTodoView(viewState:$viewState)){
-                        ZStack{
-                            RoundedRectangle(cornerRadius: 7)
-                                .fill(Color(red: 0.6980392156862745, green: 0.7215686274509804, blue: 0.6392156862745098))
-                                .frame(width: 346, height: 43)
-                            
-                            //                      Button(action:{
-                            //                            print("동의 후 회원가입 하기 button tapped!")
-                            //                        }) {
-                            Text("동의 후 회원가입 하기")
-                                .fontWeight(.regular)
-                                .foregroundColor(.white)
-                                .font(.system(size: 17))
-                            
-                            //}
-                        } // ZStack
-                        
+                    
+                    Button(action : {
+                        viewState = "InsertToDo"
+                    }){
+                        Text("동의 후 회원가입 하기")
+                            .fontWeight(.regular)
+                            .foregroundColor(.white)
+                            .font(.system(size: 17))
                     }
-                    
-                    
-                    
-                    
+                        .padding(.horizontal, 10.0)
+                        .padding(.vertical, 15.0)
+                        .background(RoundedRectangle(cornerRadius: 7)
+                        .fill(Color.OLIVE_8).frame(width: 336))
+                        .frame(width:336, height: 43.0)
                     
                 } // VStack
                 
