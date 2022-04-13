@@ -9,10 +9,16 @@ import SwiftUI
 
 struct InsertUserInfoView: View {
     @Binding var viewState : String
+    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     
     @State var nickname: String = ""
-    @State var moto: String = ""
+    @State var motto: String = ""
     
+    private func saveInfo() {
+        UserDefaults.standard.set(nickname, forKey: "nickname")
+        UserDefaults.standard.set(motto, forKey: "motto")
+        self.mode.wrappedValue.dismiss()
+    }
     
     var body: some View {
         NavigationView {
@@ -54,7 +60,7 @@ struct InsertUserInfoView: View {
                             .fill(Color.white)
                             .frame(width: 346, height: 43)
                             .shadow(color: Color(red: 0.725, green: 0.725, blue: 0.725), radius: 1, x: 0, y: 0)
-                        TextField("좌우명을 입력해주세요",text: $moto)
+                        TextField("좌우명을 입력해주세요",text: $motto)
                             .padding(.leading)
                             .frame(width: 346, height: 43)
                         
@@ -100,6 +106,7 @@ struct InsertUserInfoView: View {
                     } // Z
                     
                     Button(action : {
+                        saveInfo()
                         viewState = "InsertToDo"
                     }){
                         Text("동의 후 회원가입 하기")
