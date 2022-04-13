@@ -1,132 +1,159 @@
 //
-//  InsertUserInfoView.swift
+//  InsertTodoView.swift
 //  ProductiveThree
 //
 //  Created by yeongwoocho on 2022/04/12.
 //
 
 import SwiftUI
+import Combine
 
-struct InsertUserInfoView: View {
-    @State var nickname: String = ""
-    @State var moto: String = ""
+struct InsertTodoView: View {
+    @State var newToDoList = [
+        toDoInput(index: 0, input: ""),
+        toDoInput(index: 1, input: ""),
+        toDoInput(index: 2, input: "")
+    ]
+    
+    var titleBox : some View{
+        VStack(alignment: .leading, spacing: 8.0){
+            HStack {
+                Text("오늘 나에게 \n중요한 3가지")
+                    .font(.system(size: 27))
+                    .fontWeight(.semibold)
+                Spacer()
+            }
+            Text("오늘 내가 할 일들로 빈칸을 채워주세요")
+                .font(.system(size: 14))
+                .fontWeight(.light)
+                .foregroundColor(Color(red: 115/255, green: 115/255, blue: 115/255))
+        }
+        .frame(width: 336.0)
+        .padding(.bottom, 36.0)
+    }
+    
     var body: some View {
-        NavigationView {
-            
+        ZStack {
+            Color(red: 251/255, green: 251/255, blue: 251/255).edgesIgnoringSafeArea(.all)
+            VStack{
+                titleBox
+                ForEach(0 ..< 3){ index in
+                    ProductiveThree.toDoInputRow(newToDo: $newToDoList[index].input)
+                }
+                Spacer()
+                ProductiveThree.ButtonBox(newToDoList: $newToDoList)
+            }
+        }
+    }
+    
+}
+
+struct InsertTodoView_Previews: PreviewProvider {
+    static var previews: some View {
+        InsertTodoView()
+    }
+}
+
+struct toDoInput {
+    let index: Int
+    var input: String = ""
+}
+
+struct toDoInputRow: View {
+    @Binding var newToDo : String
+    
+    let textLimit : Int = 20
+    
+    func limitText(_ upper : Int) {
+        if newToDo.count > upper {
+            newToDo = String(newToDo.prefix(upper))
+        }
+    } //limitText
+    
+    var body: some View {
+        HStack(alignment: .center, spacing: 16.0){
             ZStack {
-                Color(red: 0.984313725490196, green: 0.984313725490196, blue: 0.984313725490196)
-                    .edgesIgnoringSafeArea(.all) //background
+                RoundedRectangle(cornerRadius: 7)
+                    .fill(Color(red: 1.0, green: 1.0, blue: 1.0))
+                    .shadow(color: Color(red: 0.0, green: 0.0, blue: 0.0, opacity: 0.1), radius: 4 , x: 0, y: 0)
+                    .frame(height: 40)
                 
+                TextField(
+                    "20자 이내로 입력하세요", text: $newToDo
+                )
+                .onReceive( Just(newToDo)){
+                    _ in limitText(textLimit)
+                }
+                .padding(.horizontal, 27.0)
                 
-                VStack(alignment: .leading){
-                    Text("내 정보 입력하기")
-                        .font(.system(size: 30))
-                        .fontWeight(.bold)
-                    Spacer()
-                        .frame(height: 60)
-                    
-                    
-                    Text("닉네임")
-                        .font(.system(size: 15))
-                    
-                    ZStack{
-                        RoundedRectangle(cornerRadius: 7)
-                            .fill(Color.white)
-                            .frame(width: 346.0, height: 43.0)
-                            .shadow(color: Color(red: 0.725, green: 0.725, blue: 0.725), radius: 1, x: 0, y: 0)
-                        TextField("닉네임을 입력해주세요",text: $nickname )
-                            .padding(.leading)
-                            .frame(width: 346, height: 43)
-                        Spacer()
-                            .frame(height: 24)
-                    } // ZStack
-                    
-                    Text("좌우명")
-                        .font(.system(size: 15))
-                        .padding(.top, 10)
-                    
-                    ZStack{
-                        RoundedRectangle(cornerRadius: 7)
-                            .fill(Color.white)
-                            .frame(width: 346, height: 43)
-                            .shadow(color: Color(red: 0.725, green: 0.725, blue: 0.725), radius: 1, x: 0, y: 0)
-                        TextField("좌우명을 입력해주세요",text: $moto)
-                            .padding(.leading)
-                            .frame(width: 346, height: 43)
-                        
-                    } // ZStack
-                    
-                    ZStack{
-                        Spacer()
-                            .frame(height:35)
-                        
-                        
-                        
-                        HStack{
-                            Text("생산적인3의 서비스 이용약관을 확인해주세요")
-                                .font(.system(size: 12))
-                                .fontWeight(.regular)
-                            
-                            Spacer()
-                            NavigationLink(destination: InsertTodoView()){
-                                ZStack{
-                                    RoundedRectangle(cornerRadius: 7)
-                                        .fill(Color(red: 0.5725490196078431, green: 0.7686274509803922, blue: 0.803921568627451))
-                                        .frame(width: 70, height: 16)
-                                    // Button(action:{
-                                    // print("이용약관")
-                                    // }) {
-                                    Text("이용약관")
-                                        .fontWeight(.regular)
-                                        .foregroundColor(Color(hue: 1.0, saturation: 0.013, brightness: 1.0))
-                                        .font(.system(size: 12))
-                                    // }
-                                    
-                                }
-                            }
+            } //ZStack
+            
+            if newToDo == "" {
+                Circle()
+                    .fill(Color(red: 211/255, green: 211/255, blue: 211/255, opacity: 1.0))
+                    .frame(width: 40, height: 40)
+                    .opacity(1)
+            } else {
+                Circle()
+                    .fill(Color(red: 244/255, green: 199/255, blue: 171/255, opacity: 1.0))
+                    .frame(width: 40, height: 40)
+            } // if
+        }
+        .frame(width: 336)
+        .padding(.bottom, 22.0)
+    } //body
+}
+
+
+struct ButtonBox: View {
+    @Binding var newToDoList : [toDoInput]
+    
+    func isNotBlankFn (str1: String, str2: String, str3: String)-> Bool {
+        if !str1.isEmpty && !str1.isEmpty && !str3.isEmpty {
+            return true
+        }
+        return false
+    }
+    
+    var body: some View {
+        VStack {
+            if isNotBlankFn(str1: newToDoList[0].input, str2:  newToDoList[1].input, str3:  newToDoList[2].input) {
+                Text("버튼 터치 후 수정이 불가능합니다")
+                    .font(.caption)
+                    .fontWeight(.light)
+                    .foregroundColor(Color(red: 115/255, green: 115/255, blue: 115/255))
+            }
+            
+            ZStack{
+                Button(action: {print("버튼이 눌렸습니다")}){
+                    Text("실천하러 가기")
+                        .fontWeight(.semibold)
+                        .foregroundColor(Color(red: 0.8274509803921568, green: 0.8274509803921568, blue: 0.8274509803921568))
+                }
+                .padding(.horizontal, 10.0)
+                .padding(.vertical, 15.0)
+                .background(RoundedRectangle(cornerRadius: 7).fill(Color(red: 255/255, green: 255/255, blue: 255/255)).frame(width: 336)
+                    .shadow(color: Color(red: 0.0, green: 0.0, blue: 0.0, opacity: 0.1), radius: 3 , x: 0, y: 0))
+                .frame(width:336, height: 54.0)
+                .disabled(true)
+                //disabled Button
+                
+                if isNotBlankFn(str1: newToDoList[0].input, str2:  newToDoList[1].input, str3:  newToDoList[2].input) {
+                    NavigationLink(destination: TodoListView()) {
+                        VStack{
+                        Text("실천하러 가기")
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color(red: 60/255, green: 60/255, blue: 60/255))
                         }
-                        .frame(width: 345.68)
-                        
-                    } // ZStack
+                        .padding(.horizontal, 10.0)
+                        .padding(.vertical, 15.0)
+                        .background(RoundedRectangle(cornerRadius: 7).fill(Color(red: 244/255, green: 199/255, blue: 171/255)).frame(width: 336).shadow(color: Color(red: 0.49411764705882355, green: 0.49411764705882355, blue: 0.49411764705882355, opacity: 0.15), radius: 7, x: 0, y: 0))
+                        .frame(width:336, height: 54.0)
                     
-                    
-                    ZStack{
-                        Spacer()
-                            .frame(height: 320)
-                    } // Z
-                    NavigationLink(destination: InsertTodoView()){
-                        ZStack{
-                            RoundedRectangle(cornerRadius: 7)
-                                .fill(Color(red: 0.6980392156862745, green: 0.7215686274509804, blue: 0.6392156862745098))
-                                .frame(width: 346, height: 43)
-                            
-                            //                      Button(action:{
-                            //                            print("동의 후 회원가입 하기 button tapped!")
-                            //                        }) {
-                            Text("동의 후 회원가입 하기")
-                                .fontWeight(.regular)
-                                .foregroundColor(.white)
-                                .font(.system(size: 17))
-                            
-                            //}
-                        } // ZStack
-                        
                     }
                     
-                    
-                    
-                    
-                    
-                } // VStack
-                
-            } // ZStack
-            .navigationBarHidden(true)
-        } // navigationview
+                } //albed Button
+            }
+        } //ZStack
     }
-}
-
-struct InsertUserInfoView_Previews: PreviewProvider {
-    static var previews: some View {
-        InsertUserInfoView()
-    }
-}
+} //ButtonBox
