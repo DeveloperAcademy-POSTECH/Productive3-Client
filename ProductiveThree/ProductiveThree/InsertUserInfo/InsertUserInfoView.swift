@@ -68,7 +68,7 @@ struct InsertUserInfoView: View {
                                 .fontWeight(.regular)
                             
                             Spacer()
-                            NavigationLink(destination: TermsOfService()){
+                            NavigationLink(destination: InsertTodoView()){
                                 ZStack{
                                     RoundedRectangle(cornerRadius: 7)
                                         .fill(Color(red: 0.5725490196078431, green: 0.7686274509803922, blue: 0.803921568627451))
@@ -94,7 +94,7 @@ struct InsertUserInfoView: View {
                         Spacer()
                             .frame(height: 320)
                     } // Z
-                    NavigationLink(destination: test2()){
+                    NavigationLink(destination: InsertTodoView()){
                         ZStack{
                             RoundedRectangle(cornerRadius: 7)
                                 .fill(Color(red: 0.6980392156862745, green: 0.7215686274509804, blue: 0.6392156862745098))
