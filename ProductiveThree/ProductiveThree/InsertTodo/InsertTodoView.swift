@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Combine
+import RealmSwift
 
 struct InsertTodoView: View {
     @State var newToDoList = [
@@ -14,6 +15,7 @@ struct InsertTodoView: View {
         toDoInput(index: 1, input: ""),
         toDoInput(index: 2, input: "")
     ]
+    
     
     var titleBox : some View{
         VStack(alignment: .leading, spacing: 8.0){
@@ -107,12 +109,18 @@ struct toDoInputRow: View {
 
 struct ButtonBox: View {
     @Binding var newToDoList : [toDoInput]
+    let realmCrud = RealmCRUD.instance
     
     func isNotBlankFn (str1: String, str2: String, str3: String)-> Bool {
         if !str1.isEmpty && !str1.isEmpty && !str3.isEmpty {
             return true
         }
         return false
+    }
+    
+    func createToDoList(){
+        let toDoList : [String] = [newToDoList[0].input,newToDoList[1].input,newToDoList[2].input]
+        realmCrud.createRoutine(tasks: toDoList)
     }
     
     var body: some View {
@@ -138,7 +146,7 @@ struct ButtonBox: View {
                 //disabled Button
                 
                 if isNotBlankFn(str1: newToDoList[0].input, str2:  newToDoList[1].input, str3:  newToDoList[2].input) {
-                    Button(action: { print("버튼이 눌렸습니다")}){
+                    Button(action: { createToDoList()}){
                         Text("실천하러 가기")
                             .fontWeight(.semibold)
                             .foregroundColor(Color(red: 60/255, green: 60/255, blue: 60/255))
