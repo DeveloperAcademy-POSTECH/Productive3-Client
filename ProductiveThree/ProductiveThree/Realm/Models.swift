@@ -7,12 +7,13 @@
 
 import RealmSwift
 
-class Routine: Object, Identifiable {
-    @Persisted(primaryKey: true) var routineId = UUID()
+class Routine: Object, ObjectKeyIdentifiable {
+    @Persisted(primaryKey: true) var routineId: ObjectId;
     @Persisted var date: String;
     @Persisted var contents: RealmSwift.List<Content>;
     @Persisted var accomplished = false;
     @Persisted var imgUrl: String?;
+    @Persisted var createdAt: Date = Date()
     
     convenience init(_ date: String, _ contents: List<Content>) {
         self.init()
@@ -21,8 +22,8 @@ class Routine: Object, Identifiable {
     }
 }
 
-class Content: Object {
-    @Persisted(primaryKey: true) var contentId = UUID();
+class Content: Object, ObjectKeyIdentifiable {
+    @Persisted(primaryKey: true) var contentId: ObjectId;
     @Persisted var content: String;
     @Persisted var accomplished = false;
     
@@ -31,4 +32,5 @@ class Content: Object {
         self.content = content
     }
 }
+
 
