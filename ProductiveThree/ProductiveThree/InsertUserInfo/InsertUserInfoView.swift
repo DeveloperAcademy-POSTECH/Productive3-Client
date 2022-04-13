@@ -107,7 +107,7 @@ struct InsertUserInfoView: View {
                     
                     Button(action : {
                         saveInfo()
-                        viewState = "InsertToDo"
+                        viewState = "AskToDoView"
                     }){
                         Text("동의 후 회원가입 하기")
                             .fontWeight(.regular)
