@@ -22,6 +22,7 @@
 		43A3D9F028055AA600C5A9AD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43A3D9EF28055AA600C5A9AD /* Preview Assets.xcassets */; };
 		52FAEA1628056668002C40C6 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FAEA1528056668002C40C6 /* SplashView.swift */; };
 		A477DE78951B029A729242CD /* Pods_ProductiveThree.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E623D68C61D86BE59CB7161 /* Pods_ProductiveThree.framework */; };
+		A80986742806B246005039E3 /* RealmCRUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80986732806B246005039E3 /* RealmCRUD.swift */; };
 		A8E987832805A2E40051EEE9 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E987822805A2E40051EEE9 /* Models.swift */; };
 		A8E987852805A3CC0051EEE9 /* DateToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E987842805A3CC0051EEE9 /* DateToString.swift */; };
 /* End PBXBuildFile section */
@@ -45,6 +46,7 @@
 		52FAEA1528056668002C40C6 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		9933DD0B9DCD8E56562A9B2C /* Pods-ProductiveThree.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProductiveThree.debug.xcconfig"; path = "Target Support Files/Pods-ProductiveThree/Pods-ProductiveThree.debug.xcconfig"; sourceTree = "<group>"; };
 		9A0AA5ED60DC783A79D1B520 /* Pods-ProductiveThree.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProductiveThree.release.xcconfig"; path = "Target Support Files/Pods-ProductiveThree/Pods-ProductiveThree.release.xcconfig"; sourceTree = "<group>"; };
+		A80986732806B246005039E3 /* RealmCRUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCRUD.swift; sourceTree = "<group>"; };
 		A8E987822805A2E40051EEE9 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		A8E987842805A3CC0051EEE9 /* DateToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateToString.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -211,6 +213,7 @@
 			children = (
 				A8E987822805A2E40051EEE9 /* Models.swift */,
 				A8E987842805A3CC0051EEE9 /* DateToString.swift */,
+				A80986732806B246005039E3 /* RealmCRUD.swift */,
 			);
 			path = Realm;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				43A3D9E928055AA500C5A9AD /* ProductiveThreeApp.swift in Sources */,
 				439C655028055DDD00FDDE19 /* InsertUserInfoView.swift in Sources */,
 				439C654C28055DBF00FDDE19 /* LoadingView.swift in Sources */,
+				A80986742806B246005039E3 /* RealmCRUD.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
