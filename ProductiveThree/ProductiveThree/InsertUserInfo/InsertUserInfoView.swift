@@ -13,6 +13,12 @@ struct InsertUserInfoView: View {
     
     @State var nickname: String = ""
     @State var motto: String = ""
+
+    private func saveInfo() {
+        UserDefaults.standard.set(nickname, forKey: "nickname")
+        UserDefaults.standard.set(motto, forKey: "motto")
+        self.mode.wrappedValue.dismiss()
+    }
     
     private func saveInfo() {
         UserDefaults.standard.set(nickname, forKey: "nickname")
@@ -77,6 +83,7 @@ struct InsertUserInfoView: View {
                         RoundedRectangle(cornerRadius: 7)
                             .fill(Color(red: 0.5725490196078431, green: 0.7686274509803922, blue: 0.803921568627451))
                             .frame(width: 70, height: 16)
+
                         
                         Text("이용약관")
                             .fontWeight(.regular)
@@ -99,7 +106,7 @@ struct InsertUserInfoView: View {
                             .foregroundColor(Color.OLIVE_8)
                             .font(.system(size: 15))
                         
-                        Text("동의후 회원가입하기")
+                        Text("동의 후 회원가입하기")
                             .padding(.horizontal, 10.0)
                             .padding(.vertical, 15.0)
                             .background(RoundedRectangle(cornerRadius: 7).fill(Color(red: 255/255, green: 255/255, blue: 255/255)).frame(width: 336)
@@ -111,6 +118,7 @@ struct InsertUserInfoView: View {
                 } else {
                     Text(" ")
                         .font(.system(size: 15))
+
                     Button(action : {
                         saveInfo()
                         viewState = "AskToDoView"
@@ -127,6 +135,7 @@ struct InsertUserInfoView: View {
                     .frame(width:336, height: 43.0)
                     
                 } // disabled button
+
                 
             } // VStack
             

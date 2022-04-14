@@ -7,20 +7,20 @@
 
 import SwiftUI
 import RealmSwift
-import Realm
-
 
 struct AskToDoView: View {
+    // Realm
+    @ObservedResults(Routine.self) var routines;
+    var routine: Routine? {
+        routines.where { $0.date == DateToString.resolve(date: Date()) }.first
+    }
+    
     @Binding var viewState : String
     
+    
     var body: some View {
-//        if routineDate == nil {
-//            InsertTodoView(viewState: $viewState)
-//        }
-////        Text("asktodoView")
-////            .onTapGesture {
-////                print(routineDate)
-////            }
+        // Render TodoList View when routine exists
+        // ContentView(routine: routine!)
     }
 }
 
