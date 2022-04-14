@@ -6,15 +6,18 @@
 //
 
 import SwiftUI
+import Realm
+import RealmSwift
 
 struct MyPageDetailView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
-    @Binding var index: Int?
+    @Binding var element: Routine?
+    
     @Binding var showModal: Bool
     
-    mutating func setIndex(index: Int) {
-        self.index = index
+    mutating func setElement(element: Routine) {
+        self.element = element
     }
     
     var body: some View{
@@ -22,7 +25,7 @@ struct MyPageDetailView: View {
             VStack{
                 HStack(alignment: .center) {
                     ZStack {
-                        Text("22.04.11 (월)")
+                        Text(element?.date ?? "상세보기")
                             .font(.title2)
                             .fontWeight(.bold)
                             .multilineTextAlignment(.center)
@@ -41,8 +44,7 @@ struct MyPageDetailView: View {
                 }
                 .padding(.top, 40)
                 
-                AsyncImage(url: URL(string: "https://storage.googleapis.com/no-ri/\(index!).png")){ image in
-                    
+                AsyncImage(url: URL(string: (element?.imgUrl)!)){ image in
                     image
                         .resizable()
                         .scaledToFill()
@@ -53,46 +55,40 @@ struct MyPageDetailView: View {
                 Text("실천 완료한 할 일 3가지").font(.system(size: 20)).foregroundColor(Color(hue: 0.0, saturation: 0.0, brightness: 0.0, opacity: 0.658) ).padding([.top, .bottom], metrics.size.height * 0.02)
                 Divider()
                 VStack {
-                    CompletedList()
+                    CompletedList(contents: element!.contents)
                     Spacer()
                 }
-            }// VStack
-            .navigationBarTitle("22.04.11 (월)", displayMode: .inline)
-            .navigationBarItems(trailing: HStack {
-                Button(action: {self.presentationMode.wrappedValue.dismiss()}) {
-                    Image(systemName: "xmark")
-                }
-            })
+            }
         }
-    }// body
+    }
 }
-
-//struct MyPageDetailView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MyPageDetailView()
-//    }
-//}
 
 struct CompletedList: View {
     let screenWidth = UIScreen.main.bounds.size.width
     let screenHeight = UIScreen.main.bounds.size.height
+    var contents: RealmSwift.List<Content>
+    
+    init(contents: RealmSwift.List<Content>) {
+        self.contents = contents
+    }
+    
     var body: some View {
             VStack (alignment: .leading){
                 HStack (alignment: .center) {
                     Image(systemName: "checkmark.circle.fill")
                         .foregroundColor(Color(red: 0.9568627450980393, green: 0.7803921568627451, blue: 0.6705882352941176))
-                    Text("아침에 일어나서 샤워하기")
+                    Text(contents[0].content)
                         //.fixedSize(horizontal: false, vertical: true)
                 }.padding(screenWidth * 0.01)
                 HStack (alignment: .center) {
                     Image(systemName: "checkmark.circle.fill")
                         .foregroundColor(Color(red: 0.9568627450980393, green: 0.7803921568627451, blue: 0.6705882352941176))
-                    Text("비타민 챙겨먹기")
+                    Text(contents[1].content)
                 }.padding(screenWidth * 0.01)
                 HStack (alignment: .center) {
                     Image(systemName: "checkmark.circle.fill")
                         .foregroundColor(Color(red: 0.9568627450980393, green: 0.7803921568627451, blue: 0.6705882352941176))
-                    Text("집 앞에 영일대 산책 다녀오기")
+                    Text(contents[2].content)
                 }.padding(screenWidth * 0.01)
             }.padding(.horizontal, screenWidth * 0.13).padding(.top, screenHeight * 0.03)//.frame(width: h.size.width * 0.7)
     }

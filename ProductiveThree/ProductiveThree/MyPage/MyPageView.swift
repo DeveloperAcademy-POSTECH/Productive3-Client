@@ -4,40 +4,50 @@
 //
 //  Created by yeongwoocho on 2022/04/12.
 //
+//
+
 
 import SwiftUI
+import Realm
+import RealmSwift
 
 struct MyPageView: View {
-    @State private var showModal = false //상태
-    @State private var index: Int?
+    @State private var showModal = false
+    
+    @State private var element: Routine?
     
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     
-    //목록을 1부터 1000까지 만듬
-    let data = Array(0...6)
+    var realm: Realm?
     
-    //화면을 그리드형식으로 꽉채워줌
+    var cardData: [Routine] = []
+    
     let columns = [
         GridItem(.flexible()),
         GridItem(.flexible()),
         GridItem(.flexible())
     ]
     
-    let baseImageURL = "https://storage.googleapis.com/no-ri"
-    
-    func getImageURL(index: Int) -> String {
-        return baseImageURL + "/\(index).png"
+    init() {
+        do {
+            realm = try Realm()
+            let resultRoutine = realm?.objects(Routine.self)
+            let results = resultRoutine?.first
+            results.map { cardData.append($0) }
+        } catch let error {
+            print(error.localizedDescription)
+        }
     }
     
     var body: some View {
         VStack {
-            Text("뭐든 미친듯이")
+            Text(UserDefaults.standard.string(forKey: "motto")!)
                 .fontWeight(.light)
                 .font(.system(size: 17))
             
             Spacer()
             
-            Text("Ginger")
+            Text(UserDefaults.standard.string(forKey: "nickname")!)
                 .fontWeight(.semibold)
                 .font(.system(size: 25))
             
@@ -45,7 +55,7 @@ struct MyPageView: View {
                 .padding([.top, .bottom], 10)
                 .padding([.leading, .trailing], 20)
             
-            Text("총 \(data.count)일의 실천완료~!")
+            Text("총 \(cardData.count)일의 실천완료~!")
                 .fontWeight(.medium)
                 .font(.system(size: 17))
                 .foregroundColor(Color.init(hex: "92C4CD"))
@@ -56,8 +66,8 @@ struct MyPageView: View {
             
             ScrollView {
                 LazyVGrid(columns: columns, spacing: 10) {
-                    ForEach(data, id: \.self) { index in
-                        AsyncImage(url: URL(string: getImageURL(index: index))){
+                    ForEach(cardData, id: \.self) { element in
+                        AsyncImage(url: URL(string: element.imgUrl ?? "")){
                             $0.resizable()
                                 .scaledToFill()
                                 .aspectRatio(contentMode: .fit)
@@ -67,16 +77,15 @@ struct MyPageView: View {
                         }
                         .onTapGesture {
                             self.showModal = true
-                            self.index = index
+                            self.element = element
                         }
                     }
                     .sheet(isPresented: self.$showModal) {
-                        MyPageDetailView(index: self.$index, showModal: self.$showModal)
+                        MyPageDetailView(element: self.$element, showModal: self.$showModal)
                     }
                 }
             }
             .padding([.horizontal, .vertical], 10)
-            
         }
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: Button(action : {
@@ -94,10 +103,8 @@ struct MyPageView: View {
                 .renderingMode(.template)
                 .foregroundColor(Color.OLIVE_8)
         })
-        
     }
 }
-
 
 struct MyPageView_Previews: PreviewProvider {
     static var previews: some View {

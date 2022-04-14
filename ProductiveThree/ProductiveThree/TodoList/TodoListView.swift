@@ -41,7 +41,7 @@ struct TodoListView: View {
                 HStack {
                     Spacer()
                     VStack{
-                        Spacer()
+//                        Spacer()
                         HeaderText()
                         
                         ForEach(routine.contents, id: \.self) { content in
