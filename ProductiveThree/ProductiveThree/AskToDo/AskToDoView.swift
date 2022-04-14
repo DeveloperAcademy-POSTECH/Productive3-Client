@@ -19,7 +19,11 @@ struct AskToDoView: View {
     
     init(viewState: Binding<String>) {
         _viewState = viewState
-        print(routines)
+//        let realmCrud = RealmCRUD.instance
+//        realmCrud.mockupRoutine(tasks: ["태권도 학원 가기", "카페가기", "춤추기"], date: "2022-04-09")
+//        realmCrud.mockupRoutine(tasks: ["가", "나", "다"], date: "2022-04-10")
+//        realmCrud.mockupRoutine(tasks: ["다리 긁기", "머리 흔들기", "책 읽기"], date: "2022-04-11")
+//        realmCrud.mockupRoutine(tasks: ["발시렵기", "코딩하기", "안녕"], date: "2022-04-12")
     }
     
     var body: some View {

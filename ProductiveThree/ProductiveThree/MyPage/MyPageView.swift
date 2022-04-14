@@ -13,8 +13,11 @@ import RealmSwift
 
 struct MyPageView: View {
     @State private var showModal = false
-    
     @State private var element: Routine?
+    @ObservedResults(Routine.self) var results;
+    var routines: Results<Routine>? {
+        results.where({ $0.accomplished == true }).sorted(byKeyPath: "createdAt", ascending: true)
+    }
     
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     
@@ -29,13 +32,8 @@ struct MyPageView: View {
     ]
     
     init() {
-        do {
-            realm = try Realm()
-            let resultRoutine = realm?.objects(Routine.self)
-            let results = resultRoutine?.first
-            results.map { cardData.append($0) }
-        } catch let error {
-            print(error.localizedDescription)
+        for routine in routines! {
+            cardData.append(routine)
         }
     }
     
