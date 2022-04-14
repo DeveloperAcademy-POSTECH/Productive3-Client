@@ -94,7 +94,6 @@ struct InsertUserInfoView: View {
                     .frame(width: 345.68)
                     
                     Spacer()
-                        .frame(height: 290)
                     
                     if (nickname == "" || motto == ""){
                         VStack(alignment: .center){
