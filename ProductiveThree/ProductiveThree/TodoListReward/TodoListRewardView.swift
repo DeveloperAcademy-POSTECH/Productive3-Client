@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct TodoListRewardView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @ObservedRealmObject var routine: Routine;
     
     let random = String(Int.random(in: 0...71))
     
@@ -56,7 +58,7 @@ struct TodoListRewardView: View {
                         .padding(.bottom, metrics.size.height * 0.08)
                         
                         
-                        AsyncImage(url: URL(string: "https://storage.googleapis.com/no-ri/\(random).png")){ image in
+                        AsyncImage(url: URL(string: routine.imgUrl! )){ image in
                             image.resizable()
                         } placeholder: {
                             ProgressView()
@@ -79,11 +81,5 @@ struct TodoListRewardView: View {
             .background(Color(red: 251/255, green: 251/255, blue: 251/255))
             .edgesIgnoringSafeArea(.top)
         }
-    }
-}
-
-struct TodoListRewardView_Previews: PreviewProvider {
-    static var previews: some View {
-        TodoListRewardView()
     }
 }
