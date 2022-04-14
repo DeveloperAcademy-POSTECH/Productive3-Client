@@ -10,6 +10,7 @@
 import SwiftUI
 import Realm
 import RealmSwift
+import Kingfisher
 
 struct MyPageView: View {
     @State private var showModal = false
@@ -65,18 +66,14 @@ struct MyPageView: View {
             ScrollView {
                 LazyVGrid(columns: columns, spacing: 10) {
                     ForEach(cardData, id: \.self) { element in
-                        AsyncImage(url: URL(string: element.imgUrl ?? "")){
-                            $0.resizable()
-                                .scaledToFill()
-                                .aspectRatio(contentMode: .fit)
-                                .cornerRadius(20)
-                        } placeholder: {
-                            ProgressView()
-                        }
-                        .onTapGesture {
-                            self.showModal = true
-                            self.element = element
-                        }
+                        KFImage(URL(string: element.imgUrl!))
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .cornerRadius(20)
+                            .onTapGesture {
+                                self.showModal = true
+                                self.element = element
+                            }
                     }
                     .sheet(isPresented: self.$showModal) {
                         MyPageDetailView(element: self.$element, showModal: self.$showModal)
