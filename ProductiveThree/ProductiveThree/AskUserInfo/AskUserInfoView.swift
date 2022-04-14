@@ -8,9 +8,17 @@
 import SwiftUI
 
 struct AskUserInfoView: View {
+    
     @Binding var viewState : String
     
+    var nickname: String? = UserDefaults.standard.string(forKey: "nickname")
+    var motto: String? = UserDefaults.standard.string(forKey: "motto")
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        if nickname == nil || motto == nil {
+            InsertUserInfoView(viewState: $viewState);
+        } else {
+            AskToDoView(viewState: $viewState);
+        }
     }
 }
