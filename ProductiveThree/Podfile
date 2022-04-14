@@ -7,6 +7,8 @@ target 'ProductiveThree' do
 
   pod 'RealmSwift'
 
+  pod 'Kingfisher', '~> 7.0'
+
   # Pods for ProductiveThree
 
 end

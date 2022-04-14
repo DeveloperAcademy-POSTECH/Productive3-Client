@@ -8,6 +8,7 @@
 import SwiftUI
 import Realm
 import RealmSwift
+import Kingfisher
 
 struct MyPageDetailView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
@@ -44,13 +45,13 @@ struct MyPageDetailView: View {
                 }
                 .padding(.top, 40)
                 
-                AsyncImage(url: URL(string: (element?.imgUrl)!)){ image in
-                    image
-                        .resizable()
-                        .scaledToFill()
-                } placeholder: {
-                    ProgressView()
-                }.frame(width: metrics.size.width * 0.7, height: metrics.size.width * 0.7).cornerRadius(/*@START_MENU_TOKEN@*/40.0/*@END_MENU_TOKEN@*/).padding(.vertical, metrics.size.height * 0.06).shadow(radius:7)
+                KFImage(URL(string: element!.imgUrl!))
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: metrics.size.width * 0.8, height: metrics.size.width * 0.8)
+                    .cornerRadius(/*@START_MENU_TOKEN@*/40.0/*@END_MENU_TOKEN@*/)
+                    .padding(.vertical, metrics.size.height * 0.05)
+                    .shadow(radius:7)
                 Divider()
                 Text("실천 완료한 할 일 3가지").font(.system(size: 20)).foregroundColor(Color(hue: 0.0, saturation: 0.0, brightness: 0.0, opacity: 0.658) ).padding([.top, .bottom], metrics.size.height * 0.02)
                 Divider()

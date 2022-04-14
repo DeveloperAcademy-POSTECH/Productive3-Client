@@ -7,6 +7,7 @@
 
 import SwiftUI
 import RealmSwift
+import Kingfisher
 
 struct TodoListRewardView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
@@ -57,14 +58,11 @@ struct TodoListRewardView: View {
                         )
                         .padding(.bottom, metrics.size.height * 0.08)
                         
-                        
-                        AsyncImage(url: URL(string: routine.imgUrl! )){ image in
-                            image.resizable()
-                        } placeholder: {
-                            ProgressView()
-                        }
-                        .frame(width: metrics.size.width * 0.817, height: metrics.size.width * 0.817)
-                        
+                        KFImage(URL(string: routine.imgUrl!))
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .cornerRadius(30)
+                            .frame(width: metrics.size.width * 0.817, height: metrics.size.width * 0.817)
                     } // VStack
                 } // ZStack
                 
