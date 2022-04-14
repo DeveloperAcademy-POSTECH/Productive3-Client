@@ -31,6 +31,7 @@ struct TodoListView: View {
     // States
     @State var isModal: Bool = false;
     @State var isDisabled: Bool = false;
+    @State var showModal = false;
     
     var body: some View {
         NavigationView {
@@ -58,7 +59,13 @@ struct TodoListView: View {
                 .background(Color.BACKGROUND)
                 
                 isModal ? Color.black.opacity(0.8) .edgesIgnoringSafeArea(.all) : nil
-                isModal ? ModalView(isModal: $isModal, isDisabled: $isDisabled, routine: routine) : nil
+                isModal ? ModalView(isModal: $isModal, isDisabled: $isDisabled, showModal: $showModal, routine: routine) : nil
+            }
+            .onAppear {
+                initDisabledSetter(routine: routine)
+            }
+            .fullScreenCover(isPresented: self.$showModal) {
+                TodoListRewardView(routine: routine)
             }
             .navigationBarItems(
                 trailing:

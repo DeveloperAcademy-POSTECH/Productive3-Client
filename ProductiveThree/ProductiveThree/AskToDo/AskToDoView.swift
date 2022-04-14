@@ -17,8 +17,17 @@ struct AskToDoView: View {
     
     @Binding var viewState : String
     
+    init(viewState: Binding<String>) {
+        _viewState = viewState
+        print(routines)
+    }
     
     var body: some View {
+        if routine == nil {
+            InsertTodoView(viewState: $viewState)
+        } else {
+            TodoListView(routine: routine!)
+        }
         // Render TodoList View when routine exists
         // ContentView(routine: routine!)
     }

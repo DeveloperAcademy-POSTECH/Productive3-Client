@@ -16,9 +16,9 @@ struct AskUserInfoView: View {
     
     var body: some View {
         if nickname == nil || motto == nil {
-            InsertUserInfoView(viewState: $viewState);
+            InsertUserInfoView(viewState: $viewState)
         } else {
-            AskToDoView(viewState: $viewState);
+            AskToDoView(viewState: $viewState)
         }
     }
 }

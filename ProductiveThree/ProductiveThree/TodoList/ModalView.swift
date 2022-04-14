@@ -11,8 +11,12 @@ import RealmSwift
 struct ModalView: View {
     @Binding var isModal: Bool
     @Binding var isDisabled: Bool
+    @Binding var showModal: Bool
+    
     @ObservedRealmObject var routine: Routine;
     let realmCrud = RealmCRUD.instance
+    let random = String(Int.random(in: 0...71))
+    
     
     private func negativeHandler() {
         isModal.toggle();
@@ -22,6 +26,9 @@ struct ModalView: View {
         isModal.toggle();
         isDisabled.toggle();
         realmCrud.toggleRoutine(routine: routine)
+        realmCrud.insertReward(routine: routine, imgUrl: "https://storage.googleapis.com/no-ri/\(random).png")
+        showModal = true;
+        
     }
     
     var body: some View {

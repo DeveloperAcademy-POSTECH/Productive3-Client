@@ -17,14 +17,10 @@ struct InsertUserInfoView: View {
     private func saveInfo() {
         UserDefaults.standard.set(nickname, forKey: "nickname")
         UserDefaults.standard.set(motto, forKey: "motto")
+        viewState = "AskToDoView"
         self.mode.wrappedValue.dismiss()
     }
     
-    private func saveInfo() {
-        UserDefaults.standard.set(nickname, forKey: "nickname")
-        UserDefaults.standard.set(motto, forKey: "motto")
-        self.mode.wrappedValue.dismiss()
-    }
     var body: some View {
         
         ZStack {
@@ -121,7 +117,6 @@ struct InsertUserInfoView: View {
 
                     Button(action : {
                         saveInfo()
-                        viewState = "AskToDoView"
                     }){
                         Text("동의 후 회원가입 하기")
                             .fontWeight(.regular)
