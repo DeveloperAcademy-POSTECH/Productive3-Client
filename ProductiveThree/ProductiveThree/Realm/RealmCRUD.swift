@@ -10,14 +10,12 @@ import RealmSwift
 
 class RealmCRUD {
     static let instance = RealmCRUD()
-    
     private let realm = try! Realm()
     
-    func createRoutine(tasks: [String], date: String) {
+    func mockupRoutine(tasks: [String], date: String) {
         let contents = contentExtracted(tasks: tasks)
-        
         try! realm.write {
-            realm.add(Routine(date, contents))
+            realm.add(Routine(date, contents, randomUrlBuilder()))
         }
     }
     
@@ -64,6 +62,11 @@ class RealmCRUD {
             contents.append(Content(task))
         }
         return contents;
+    }
+    
+    private func randomUrlBuilder() -> String {
+        let random = String(Int.random(in: 0...71))
+        return "https://storage.googleapis.com/no-ri/\(random).png"
     }
     
     private init() {}
