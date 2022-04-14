@@ -6,12 +6,21 @@
 //
 
 import SwiftUI
+import RealmSwift
+import Realm
+
 
 struct AskToDoView: View {
     @Binding var viewState : String
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+//        if routineDate == nil {
+//            InsertTodoView(viewState: $viewState)
+//        }
+////        Text("asktodoView")
+////            .onTapGesture {
+////                print(routineDate)
+////            }
     }
 }
 
