@@ -6,12 +6,23 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct AskToDoView: View {
+    // Realm
+    @ObservedResults(Routine.self) var routines;
+    var routine: Routine? {
+        routines.where { $0.date == DateToString.resolve(date: Date()) }.first
+    }
+    
     @Binding var viewState : String
+    
     
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+
+        // Render TodoList View when routine exists
+        // ContentView(routine: routine!)
     }
 }
 
