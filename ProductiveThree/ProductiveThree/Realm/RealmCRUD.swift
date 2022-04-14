@@ -50,6 +50,13 @@ class RealmCRUD {
         }
     }
     
+    func deleteRoutine(routine: Routine) {
+        let realmRoutine = realm.objects(Routine.self)
+            .where { $0.routineId == routine.routineId }.first;
+        try! realm.write {
+            realm.delete(realmRoutine!)
+        }
+    }
     
     private func contentExtracted(tasks: [String]) -> RealmSwift.List<Content> {
         let contents = RealmSwift.List<Content>();

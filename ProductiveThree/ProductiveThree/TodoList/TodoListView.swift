@@ -53,6 +53,11 @@ struct TodoListView: View {
                         .disabled(isDisabled)
                         
                         Spacer()
+                        
+                        Button("삭제", action: {
+                            let realmCrud = RealmCRUD.instance
+                            realmCrud.deleteRoutine(routine: routine)
+                        })
                     }
                     Spacer()
                 }
