@@ -38,7 +38,7 @@ struct InsertTodoView: View {
     var body: some View {
         GeometryReader { metrics in
             ZStack {
-                Color(red: 251/255, green: 251/255, blue: 251/255).edgesIgnoringSafeArea(.all)
+                Color.LIGHTGRAY_8.edgesIgnoringSafeArea(.all)
                 VStack{
                     titleBox
                     ForEach(0 ..< 3){ index in
@@ -74,7 +74,7 @@ struct toDoInputRow: View {
         HStack(alignment: .center, spacing: 16.0){
             ZStack {
                 RoundedRectangle(cornerRadius: 7)
-                    .fill(Color(red: 1.0, green: 1.0, blue: 1.0))
+                    .fill(Color.white)
                     .shadow(color: Color(red: 0.0, green: 0.0, blue: 0.0, opacity: 0.1), radius: 4 , x: 0, y: 0)
                     .frame(height: 40)
                 
@@ -90,12 +90,12 @@ struct toDoInputRow: View {
             
             if newToDo == "" {
                 Circle()
-                    .fill(Color(red: 211/255, green: 211/255, blue: 211/255, opacity: 1.0))
+                    .fill(Color.GRAY_8)
                     .frame(width: 40, height: 40)
                     .opacity(1)
             } else {
                 Circle()
-                    .fill(Color(red: 244/255, green: 199/255, blue: 171/255, opacity: 1.0))
+                    .fill(Color.ORANGE_8)
                     .frame(width: 40, height: 40)
             } // if
         }
@@ -135,7 +135,7 @@ struct ButtonBox: View {
                 Button(action: {print("버튼이 눌렸습니다")}){
                     Text("실천하러 가기")
                         .fontWeight(.semibold)
-                        .foregroundColor(Color(red: 0.8274509803921568, green: 0.8274509803921568, blue: 0.8274509803921568))
+                        .foregroundColor(Color.GRAY_8)
                 }
                 .padding(.horizontal, 10.0)
                 .padding(.vertical, 15.0)
@@ -156,7 +156,7 @@ struct ButtonBox: View {
                     }
                     .padding(.horizontal, 10.0)
                     .padding(.vertical, 15.0)
-                    .background(RoundedRectangle(cornerRadius: 7).fill(Color(red: 244/255, green: 199/255, blue: 171/255)).frame(width: 336).shadow(color: Color(red: 0.49411764705882355, green: 0.49411764705882355, blue: 0.49411764705882355, opacity: 0.15), radius: 7, x: 0, y: 0))
+                    .background(RoundedRectangle(cornerRadius: 7).fill(Color.ORANGE_8).frame(width: 336).shadow(color: Color(red: 0.49411764705882355, green: 0.49411764705882355, blue: 0.49411764705882355, opacity: 0.15), radius: 7, x: 0, y: 0))
                     .frame(width:336, height: 54.0)
                     
                 } //albed Button

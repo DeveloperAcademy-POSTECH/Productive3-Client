@@ -21,7 +21,7 @@ struct EditUserInfoView: View {
     var body: some View {
         
         ZStack {
-            Color(red: 0.984313725490196, green: 0.984313725490196, blue: 0.984313725490196)
+            Color.LIGHTGRAY_8
                 .edgesIgnoringSafeArea(.all)
             
             VStack(alignment: .leading){

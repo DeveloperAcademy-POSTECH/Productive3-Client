@@ -20,7 +20,7 @@ struct TodoListRewardView: View {
             VStack {
                 ZStack {
                     RoundedRectangle(cornerRadius: 30)
-                        .fill(Color(red: 244/255, green: 199/255, blue: 171/255))
+                        .fill(Color.ORANGE_8)
                         .frame(width: .infinity, height: metrics.size.height * 0.46)
                         .padding(.bottom, metrics.size.height * 0.38)
                     
@@ -52,7 +52,7 @@ struct TodoListRewardView: View {
                         .foregroundColor(Color(red: 63/255, green: 63/255, blue: 63/255))
                         .background(
                             RoundedRectangle(cornerRadius: 19)
-                                .fill(Color.white)
+                                .fill(Color.LIGHTGRAY_8)
                                 .frame(width: metrics.size.width * 0.74, height: metrics.size.height * 0.16)
                             
                         )

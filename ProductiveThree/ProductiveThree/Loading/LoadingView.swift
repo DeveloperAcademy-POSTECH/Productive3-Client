@@ -28,7 +28,7 @@ struct LoadingView: View {
                 Spacer()
                 
             } // VStack
-            .background(Color(red: 251/255, green: 251/255, blue: 251/255))
+            .background(Color.LIGHTGRAY_8)
         }
     }
 }

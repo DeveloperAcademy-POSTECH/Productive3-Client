@@ -24,7 +24,7 @@ struct InsertUserInfoView: View {
     var body: some View {
         GeometryReader { metrics in
             ZStack {
-                Color(red: 0.984313725490196, green: 0.984313725490196, blue: 0.984313725490196)
+                Color.LIGHTGRAY_8
                     .edgesIgnoringSafeArea(.all) //background
                 
                 VStack(alignment: .leading){
@@ -58,7 +58,7 @@ struct InsertUserInfoView: View {
                         RoundedRectangle(cornerRadius: 7)
                             .fill(Color.white)
                             .frame(width: 346, height: 43)
-                            .shadow(color: Color(red: 0.725, green: 0.725, blue: 0.725), radius: 1, x: 0, y: 0)
+                            .shadow(color: Col/Users/taeho_kim/Desktop/Productive3-Client/ProductiveThree/ProductiveThree/InsertUserInfo/InsertUserInfoView.swift:                            .shadow(color: Color(red: 0.725, green: 0.725, blue: 0.725), radius: 1, x: 0, y: 0)or(red: 0.725, green: 0.725, blue: 0.725), radius: 1, x: 0, y: 0)
                         TextField("좌우명을 입력해주세요", text: $motto)
                             .padding(.leading)
                             .frame(width: 346, height: 43)
@@ -77,7 +77,7 @@ struct InsertUserInfoView: View {
                         
                         ZStack{
                             RoundedRectangle(cornerRadius: 7)
-                                .fill(Color(red: 0.5725490196078431, green: 0.7686274509803922, blue: 0.803921568627451))
+                                .fill(Color.GRAY_8)
                                 .frame(width: 70, height: 16)
                             
                             
