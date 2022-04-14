@@ -36,15 +36,18 @@ struct InsertTodoView: View {
     }
     
     var body: some View {
-        ZStack {
-            Color(red: 251/255, green: 251/255, blue: 251/255).edgesIgnoringSafeArea(.all)
-            VStack{
-                titleBox
-                ForEach(0 ..< 3){ index in
-                    ProductiveThree.toDoInputRow(newToDo: $newToDoList[index].input)
+        GeometryReader { metrics in
+            ZStack {
+                Color(red: 251/255, green: 251/255, blue: 251/255).edgesIgnoringSafeArea(.all)
+                VStack{
+                    titleBox
+                    ForEach(0 ..< 3){ index in
+                        ProductiveThree.toDoInputRow(newToDo: $newToDoList[index].input)
+                    }
+                    Spacer()
+                    ProductiveThree.ButtonBox(newToDoList: $newToDoList, viewState: $viewState)
                 }
-                Spacer()
-                ProductiveThree.ButtonBox(newToDoList: $newToDoList, viewState: $viewState)
+                .padding(.top, metrics.size.height * 0.08)
             }
         }
     }
