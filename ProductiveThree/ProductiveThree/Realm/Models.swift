@@ -20,6 +20,14 @@ class Routine: Object, ObjectKeyIdentifiable {
         self.date = date;
         self.contents = contents;
     }
+    
+    convenience init(_ date: String, _ contents: List<Content>, _ imgUrl: String) {
+        self.init()
+        self.date = date;
+        self.contents = contents;
+        self.accomplished = true
+        self.imgUrl = imgUrl;
+    }
 }
 
 class Content: Object, ObjectKeyIdentifiable {
