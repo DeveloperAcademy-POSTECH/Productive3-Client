@@ -54,10 +54,10 @@ struct TodoListView: View {
                         
                         Spacer()
                         
-                        Button("삭제", action: {
-                            let realmCrud = RealmCRUD.instance
-                            realmCrud.deleteRoutine(routine: routine)
-                        })
+//                        Button("삭제", action: {
+//                            let realmCrud = RealmCRUD.instance
+//                            realmCrud.deleteRoutine(routine: routine)
+//                        })
                     }
                     Spacer()
                 }

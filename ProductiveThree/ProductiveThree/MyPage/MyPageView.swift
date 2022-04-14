@@ -16,7 +16,7 @@ struct MyPageView: View {
     @State private var element: Routine?
     @ObservedResults(Routine.self) var results;
     var routines: Results<Routine>? {
-        results.where({ $0.accomplished == true }).sorted(byKeyPath: "createdAt", ascending: true)
+        results.where({ $0.accomplished == true }).sorted(byKeyPath: "date", ascending: false)
     }
     
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
