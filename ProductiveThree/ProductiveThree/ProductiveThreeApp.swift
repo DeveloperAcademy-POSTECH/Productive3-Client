@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct ProductiveThreeApp: App {
+    init () {
+        print("여기는 root")
+    }
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ScreenSwtichView()
         }
     }
 }
