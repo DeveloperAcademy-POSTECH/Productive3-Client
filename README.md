@@ -1,11 +1,14 @@
 # 생산적인 3 (Productive 3) 
 
- <img src="README_IMG/Logo.png">
+<h6 align= "center">
+ <img width="200" src="README_IMG/Logo.png">
+</h6>
+<br>
 
  >생산적인 삶을 위해, 하루동안 실천하고 싶은 3가지를 작성하고 그것을 성취했을 때 귀여운 짤을 보상으로 받는 서비스 모바일 어플리케이션
  
  > 'Productive 3' is a service where you write 3 things you want to practice in a day and receive a cute meme as a reward when you achieve them, for a productive life.
-<r>
+
  <h3 align= "center"> MC1 - NoLi (We Have No Limit)</h3>
 
  <img src="README_IMG/Banner.png">
